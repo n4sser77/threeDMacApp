@@ -1,17 +1,34 @@
-import React from 'react'
+import { useEffect, useRef } from "react";
 
 const Hero = () => {
-  return (
-    <section id='hero'>
-      <div>
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
-      <h1>MacBook Pro</h1>
-      <img src='/title.png'/>
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 5;
+    }
+  }, []);
+
+  return (
+    <section id="hero">
+      <div>
+        <h1>MacBook Pro</h1>
+        <img src="/title.png" alt="MacBook Pro title" />
       </div>
 
-      <video src='/videos/hero.mp4' autoPlay muted playsInline/>
-    </section>
-  )
-}
+      <video
+        ref={videoRef}
+        src="/videos/hero.mp4"
+        autoPlay
+        muted
+        playsInline
+      />
 
-export default Hero
+      <button>Buy</button>
+
+      <p>From $1599 or $133/mo for 12 months </p>
+    </section>
+  );
+};
+
+export default Hero;
