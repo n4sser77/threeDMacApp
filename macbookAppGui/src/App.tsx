@@ -1,8 +1,13 @@
+import Hero from "./components/Hero"
+import NavBar from "./components/NavBar"
 
 
 const App = () => {
   return (
-    <div>App</div>
+    <main>
+      <NavBar/>
+      <Hero/>
+    </main>
   )
 }
 
